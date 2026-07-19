@@ -1,3 +1,4 @@
+# Laravel default ignores
 /.phpunit.cache
 /node_modules
 /public/build
@@ -14,37 +15,44 @@ Homestead.yaml
 auth.json
 npm-debug.log
 yarn-error.log
-/.fleet
-/.idea
-/.vscode
 
-# Database dumps and credentials
-*.sql
-.env
-.env.backup
-.env.production
-auth.json
+# Custom strict ignores for RuangAiTi repository
 
-# Archive backups
-*.zip
-
-# User uploads and media
-/public/uploads
-/uploads
-
-# Temp and logs
+# Exclude the entire agents and database folders
+/.agents
+/database
+/tests
+/Logobaru dan banner
+/scratch
 /temp_v2
 /temp_roadmap_v2
 /deploy_v6_temp
-/.agents/logs
-/.agents/scratch
-.phpunit.result.cache
+/uploads
+/public/uploads
 
-# Temporary debug and utility scripts
-/check_users.php
-/fix_permissions.php
-/migrate_roadmap_v4.php
-/patch-upload-fix.php
+# Exclude SQL dumps and ZIP archives
+*.sql
+*.zip
+
+# Exclude root files (keep only README.md and .gitignore)
+/index.php
+/artisan
+/.editorconfig
+/.gitattributes
+/package.json
+/composer.json
+/composer.lock
+/vite.config.js
+/generate_static_sitemaps.php
+/sitemap.xml
+/google*.html
+/site.webmanifest
+/favicon.ico
+/favicon-*.png
+/apple-touch-icon.png
+/android-chrome-*.png
+
+# Temporary debug and utility scripts in public
 /public/check_limit.php
 /public/clear-cache.php
 /public/debug.php
@@ -55,13 +63,7 @@ auth.json
 /public/read_log.php
 /public/view_edit_source.php
 /public/test-upload.html
-
-# Root-level server config and browser static files
-/.htaccess
-/android-chrome-*.png
-/apple-touch-icon.png
-/favicon.ico
-/favicon-*.png
-/site.webmanifest
-/google*.html
-/sitemap.xml
+/check_users.php
+/fix_permissions.php
+/migrate_roadmap_v4.php
+/patch-upload-fix.php
