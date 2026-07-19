@@ -1,0 +1,238 @@
+/*
+ * RuangAiTi V3 Analytics Workspace Styles
+ * Custom isolated dashboard stylesheet. Capped under 800 lines.
+ */
+
+:root {
+    --card-bg: #ffffff;
+    --card-border: rgba(0, 0, 0, 0.08);
+    --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --accent-primary: #3b82f6;
+    --accent-success: #10b981;
+    --radius-lg: 12px;
+    --radius-md: 8px;
+    --spacing-md: 1.25rem;
+}
+
+[data-theme="dark"] {
+    --card-bg: #1e293b;
+    --card-border: rgba(255, 255, 255, 0.08);
+    --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+}
+
+/* Custom CSS overriding AdminLTE only for V3 Analytics workspace elements */
+.analytics-workspace {
+    padding: 1.5rem;
+}
+
+.analytics-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.analytics-title h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 0.25rem 0;
+}
+
+.analytics-title p {
+    color: var(--text-secondary);
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.period-select {
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--card-border);
+    background-color: var(--card-bg);
+    color: var(--text-primary);
+    font-weight: 500;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.period-select:focus {
+    border-color: var(--accent-primary);
+}
+
+/* KPI Cards Layout */
+.kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--spacing-md);
+    margin-bottom: 2rem;
+}
+
+.kpi-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-md);
+    box-shadow: var(--card-shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.kpi-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+}
+
+.kpi-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.kpi-value {
+    font-size: 1.85rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1;
+}
+
+/* Tab Navigation */
+.analytics-tabs {
+    display: flex;
+    border-bottom: 1px solid var(--card-border);
+    margin-bottom: 2rem;
+    gap: 1.5rem;
+}
+
+.analytics-tab-link {
+    padding: 0.75rem 0.25rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s ease;
+    text-decoration: none !important;
+}
+
+.analytics-tab-link:hover {
+    color: var(--text-primary);
+}
+
+.analytics-tab-link.active {
+    color: var(--accent-primary);
+    border-bottom-color: var(--accent-primary);
+}
+
+/* Chart Canvas Wrapper */
+.chart-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-md);
+    box-shadow: var(--card-shadow);
+    margin-bottom: 2rem;
+}
+
+.chart-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.chart-card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.chart-wrapper {
+    position: relative;
+    width: 100%;
+    height: 350px;
+}
+
+/* Content & Search Analytics Tables */
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: var(--spacing-md);
+}
+
+@media (max-width: 576px) {
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.table-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-md);
+    box-shadow: var(--card-shadow);
+    margin-bottom: var(--spacing-md);
+}
+
+.table-card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 1.25rem;
+}
+
+.analytics-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.analytics-table th {
+    text-align: left;
+    padding: 0.75rem 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--card-border);
+}
+
+.analytics-table td {
+    padding: 0.85rem 0.5rem;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--card-border);
+}
+
+.analytics-table tr:last-child td {
+    border-bottom: none;
+}
+
+.analytics-table .rank-col {
+    width: 40px;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.analytics-table .stat-col {
+    text-align: right;
+    font-weight: 600;
+}
+
+.analytics-table th.stat-col {
+    text-align: right;
+}
+
+.text-truncate-custom {
+    display: block;
+    max-width: 280px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

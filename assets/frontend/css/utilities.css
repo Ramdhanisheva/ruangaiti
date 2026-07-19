@@ -1,0 +1,13 @@
+/* --- Public Roadmap Spacing Utilities --- */
+.gap-2 { gap: 8px; }
+.gap-3 { gap: 12px; }
+.gap-4 { gap: 16px; }
+
+.d-flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.w-full { width: 100%; }
+.h-full { height: 100%; }

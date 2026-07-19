@@ -1,0 +1,303 @@
+/* --- Notion-style Roadmap Builder Styles --- */
+.builder-workspace {
+    margin-top: 15px;
+    position: relative;
+}
+
+/* Saved indicator in header */
+.save-status-indicator {
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.3s ease;
+    opacity: 0;
+}
+.save-status-indicator.visible {
+    opacity: 1;
+}
+.save-status-indicator.saving {
+    background-color: rgba(253, 224, 71, 0.15);
+    color: #ca8a04;
+}
+.save-status-indicator.saved {
+    background-color: rgba(34, 197, 94, 0.15);
+    color: #16a34a;
+}
+
+/* Modules container */
+#modules-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-height: 100px;
+}
+
+/* Module card styling */
+.module-card {
+    border-left: 5px solid var(--color-primary, #2563eb);
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    background: #ffffff;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.dark-mode .module-card {
+    background: #1e293b;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+.module-card.ui-sortable-helper {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    transform: scale(1.01);
+}
+
+.module-header {
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    cursor: default;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+.dark-mode .module-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.module-drag-handle {
+    cursor: grab;
+    padding: 5px 10px;
+    margin-left: -10px;
+    color: #94a3b8;
+    transition: color 0.2s;
+}
+.module-drag-handle:hover {
+    color: #64748b;
+}
+
+.module-collapse-btn {
+    cursor: pointer;
+    padding: 5px;
+    color: #64748b;
+    transition: transform 0.2s ease;
+}
+.module-collapse-btn.collapsed {
+    transform: rotate(-90deg);
+}
+
+.module-title-section {
+    flex-grow: 1;
+    margin-left: 10px;
+}
+.module-title-section h4 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.module-title-section .module-subtitle {
+    font-size: 0.8rem;
+    color: #64748b;
+    margin-top: 2px;
+}
+
+.module-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.module-body {
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.module-description {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.05);
+}
+.dark-mode .module-description {
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
+}
+
+/* Articles inside module */
+.articles-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-height: 60px;
+    background-color: rgba(0, 0, 0, 0.01);
+    border: 2px dashed rgba(0, 0, 0, 0.03);
+    border-radius: 6px;
+    padding: 10px;
+}
+.dark-mode .articles-list {
+    background-color: rgba(255, 255, 255, 0.01);
+    border: 2px dashed rgba(255, 255, 255, 0.03);
+}
+.articles-list.ui-sortable-hover {
+    background-color: rgba(37, 99, 235, 0.03);
+    border-color: rgba(37, 99, 235, 0.3);
+}
+
+.article-item {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: default;
+    transition: all 0.2s ease;
+}
+.dark-mode .article-item {
+    background: #1e293b;
+    border: 1px solid #334155;
+}
+.article-item:hover {
+    background: #f1f5f9;
+}
+.dark-mode .article-item:hover {
+    background: #334155;
+}
+
+.article-drag-handle {
+    cursor: grab;
+    color: #94a3b8;
+}
+
+.article-title-section {
+    flex-grow: 1;
+}
+.article-title-section .article-title {
+    font-size: 0.92rem;
+    font-weight: 500;
+}
+
+.article-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.article-remove-btn {
+    color: #ef4444;
+    cursor: pointer;
+    padding: 5px;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+}
+.article-remove-btn:hover {
+    opacity: 1;
+}
+
+.btn-add-article-trigger {
+    margin-top: 15px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* Command-Palette Style Modal */
+.command-palette-modal .modal-content {
+    background: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+}
+
+.command-search-wrapper {
+    position: relative;
+    border-bottom: 1px solid #334155;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.command-search-icon {
+    color: #06b6d4;
+    font-size: 1.2rem;
+}
+
+.command-search-input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #ffffff;
+    font-size: 1.1rem;
+}
+.command-search-input::placeholder {
+    color: #64748b;
+}
+
+.command-results-list {
+    max-height: 380px;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+.command-result-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+    border: 1px solid transparent;
+}
+.command-result-item:hover, .command-result-item.selected {
+    background: #1e293b;
+    border-color: #334155;
+}
+
+.command-result-thumb {
+    width: 50px;
+    height: 32px;
+    object-fit: cover;
+    border-radius: 3px;
+    flex-shrink: 0;
+}
+
+.command-result-info {
+    flex-grow: 1;
+    min-width: 0;
+}
+.command-result-title {
+    color: #ffffff;
+    font-size: 0.92rem;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.command-result-meta {
+    font-size: 0.75rem;
+    color: #64748b;
+    margin-top: 2px;
+    display: flex;
+    gap: 10px;
+}
+
+.command-result-checkbox {
+    color: #06b6d4;
+}
+
+.command-palette-footer {
+    padding: 12px 20px;
+    border-top: 1px solid #334155;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+    color: #64748b;
+    background: #090d16;
+}

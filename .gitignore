@@ -1,0 +1,67 @@
+/.phpunit.cache
+/node_modules
+/public/build
+/public/hot
+/public/storage
+/storage/*.key
+/vendor
+.env
+.env.backup
+.env.production
+.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+auth.json
+npm-debug.log
+yarn-error.log
+/.fleet
+/.idea
+/.vscode
+
+# Database dumps and credentials
+*.sql
+.env
+.env.backup
+.env.production
+auth.json
+
+# Archive backups
+*.zip
+
+# User uploads and media
+/public/uploads
+/uploads
+
+# Temp and logs
+/temp_v2
+/temp_roadmap_v2
+/deploy_v6_temp
+/.agents/logs
+/.agents/scratch
+.phpunit.result.cache
+
+# Temporary debug and utility scripts
+/check_users.php
+/fix_permissions.php
+/migrate_roadmap_v4.php
+/patch-upload-fix.php
+/public/check_limit.php
+/public/clear-cache.php
+/public/debug.php
+/public/deploy-v3.php
+/public/force_clear.php
+/public/list_views.php
+/public/read_env.php
+/public/read_log.php
+/public/view_edit_source.php
+/public/test-upload.html
+
+# Root-level server config and browser static files
+/.htaccess
+/android-chrome-*.png
+/apple-touch-icon.png
+/favicon.ico
+/favicon-*.png
+/site.webmanifest
+/google*.html
+/sitemap.xml

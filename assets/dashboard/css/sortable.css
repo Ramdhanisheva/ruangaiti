@@ -1,0 +1,25 @@
+/* --- Sortable Drag and Drop States --- */
+.ui-state-placeholder {
+    border: 2px dashed #0284c7 !important;
+    background-color: rgba(14, 165, 233, 0.05) !important;
+    visibility: visible !important;
+    border-radius: 4px;
+    height: 45px;
+}
+
+.module-card-placeholder {
+    height: 80px;
+    border: 2px dashed #3b82f6 !important;
+    background-color: rgba(59, 130, 246, 0.05) !important;
+    visibility: visible !important;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.ui-sortable-handle {
+    user-select: none;
+}
+
+.ui-sortable-helper {
+    cursor: grabbing !important;
+}

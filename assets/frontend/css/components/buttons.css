@@ -1,0 +1,46 @@
+/* --- Public Button Components --- */
+.btn-roadmap-primary {
+    background: var(--color-primary);
+    color: #ffffff !important;
+    font-weight: 700;
+    padding: 12px 24px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 44px; /* Touch target standard */
+    text-decoration: none !important;
+}
+
+.btn-roadmap-primary:hover {
+    background: var(--color-primary-hover);
+}
+
+.btn-roadmap-outline {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-primary) !important;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 44px;
+    text-decoration: none !important;
+}
+
+.btn-roadmap-outline:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary) !important;
+    background: var(--color-primary-alpha);
+}

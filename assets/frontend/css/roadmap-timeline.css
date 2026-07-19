@@ -1,0 +1,63 @@
+/* --- Dynamic Roadmap Navigator --- */
+.roadmap-timeline-wrapper {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.roadmap-timeline-tree {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    padding-left: 10px;
+}
+
+.roadmap-timeline-node {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none !important;
+    color: var(--text-secondary);
+    padding: 6px 0;
+    transition: color 0.15s ease;
+}
+
+.roadmap-timeline-node::before {
+    content: '○';
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    z-index: 2;
+    transition: color 0.15s ease;
+}
+
+.roadmap-timeline-node:hover {
+    color: var(--color-primary);
+}
+
+.roadmap-timeline-node:hover::before {
+    content: '●';
+    color: var(--color-primary);
+}
+
+.roadmap-timeline-node-title {
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.roadmap-timeline-node-subtitle {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-left: 4px;
+}
+
+.roadmap-timeline-connector {
+    width: 1px;
+    height: 16px;
+    background: var(--border-color);
+    margin-left: 4px;
+    z-index: 1;
+}

@@ -1,0 +1,33 @@
+/* --- Roadmap Admin CRUD Custom Styles --- */
+.roadmap-form-section {
+    margin-bottom: 20px;
+}
+
+.custom-file-label::after {
+    content: "Browse";
+}
+
+.difficulty-select option[value="Beginner"] {
+    color: #16a34a;
+}
+.difficulty-select option[value="Intermediate"] {
+    color: #ca8a04;
+}
+.difficulty-select option[value="Advanced"] {
+    color: #dc2626;
+}
+
+.table-responsive table th {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    background-color: rgba(0, 0, 0, 0.02);
+}
+.dark-mode .table-responsive table th {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+.roadmap-status-select {
+    font-weight: 500;
+}

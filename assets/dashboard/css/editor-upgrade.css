@@ -1,0 +1,559 @@
+/**
+ * RuangAiTi Editor Upgrade Stylesheet
+ * Exposes styles for Focus Mode, Image Properties Sidebar, Callouts, Spoilers,
+ * Code Blocks, and stats bar.
+ * Supports light mode and dark mode.
+ */
+
+/* ─── CSS Variables for Dark/Light Mode ─────────────────────────────────── */
+:root {
+    --content-bg: #ffffff;
+    --content-text: #1e293b;
+    --content-muted: #64748b;
+    --content-border: #e2e8f0;
+    --code-bg: #1a1b26;
+    --code-header-bg: #12131e;
+    --code-text: #a9b1d6;
+    --code-header-text: #7aa2f7;
+    --callout-bg: #f8fafc;
+    --spoiler-bg: #f8fafc;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --content-bg: #0f1117;
+        --content-text: #e2e8f0;
+        --content-muted: #94a3b8;
+        --content-border: #1e293b;
+        --callout-bg: #1e293b;
+        --spoiler-bg: #1e293b;
+    }
+}
+
+/* Dark mode class override (for site with manual toggle) */
+.dark-mode, [data-theme="dark"] {
+    --content-bg: #0f1117;
+    --content-text: #e2e8f0;
+    --content-muted: #94a3b8;
+    --content-border: #1e293b;
+    --callout-bg: #1e293b;
+    --spoiler-bg: #1e293b;
+}
+
+/* ─── Code Blocks — VS Code Style ───────────────────────────────────────── */
+.code-block-wrapper {
+    position: relative;
+    margin: 1.75rem 0;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #2a2d3e;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+    font-family: 'Fira Code', 'JetBrains Mono', 'Cascadia Code', 'Courier New', monospace;
+}
+
+.code-block-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #12131e;
+    padding: 8px 14px;
+    border-bottom: 1px solid #2a2d3e;
+    min-height: 38px;
+}
+
+.code-block-lang {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #7aa2f7;
+    font-family: inherit;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.code-block-lang::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #7aa2f7;
+    opacity: 0.7;
+}
+
+.code-block-dots {
+    display: flex;
+    gap: 5px;
+    margin-right: auto;
+    margin-left: 0;
+    padding-right: 12px;
+}
+
+.code-block-dots span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.code-block-dots span:nth-child(1) { background: #ff5f57; }
+.code-block-dots span:nth-child(2) { background: #febc2e; }
+.code-block-dots span:nth-child(3) { background: #28c840; }
+
+.code-copy-btn {
+    background: rgba(122, 162, 247, 0.12);
+    color: #7aa2f7;
+    border: 1px solid rgba(122, 162, 247, 0.2);
+    border-radius: 5px;
+    padding: 3px 10px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+}
+
+.code-copy-btn:hover {
+    background: rgba(122, 162, 247, 0.25);
+    color: #fff;
+    border-color: rgba(122, 162, 247, 0.5);
+}
+
+.code-copy-btn.copied {
+    background: rgba(40, 200, 64, 0.2);
+    color: #28c840;
+    border-color: rgba(40, 200, 64, 0.4);
+}
+
+.code-block-wrapper pre {
+    margin: 0 !important;
+    border-radius: 0 !important;
+    background: #1a1b26 !important;
+    padding: 1.1rem 1.25rem !important;
+    overflow-x: auto;
+    font-size: 0.875rem !important;
+    line-height: 1.6 !important;
+    color: #a9b1d6 !important;
+}
+
+.code-block-wrapper pre code {
+    background: transparent !important;
+    color: inherit !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    font-size: inherit !important;
+    font-family: inherit !important;
+    white-space: pre !important;
+}
+
+/* Standalone pre (not in wrapper, e.g. editor) */
+pre:not(.code-block-wrapper pre) {
+    background: #1a1b26 !important;
+    color: #a9b1d6 !important;
+    padding: 1.1rem 1.25rem !important;
+    border-radius: 8px !important;
+    position: relative !important;
+    overflow-x: auto !important;
+    font-family: 'Fira Code', 'JetBrains Mono', 'Courier New', monospace !important;
+    margin: 1.5rem 0 !important;
+    font-size: 0.875rem !important;
+    line-height: 1.6 !important;
+    border: 1px solid #2a2d3e !important;
+}
+
+pre code {
+    background: transparent !important;
+    color: inherit !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    font-size: inherit !important;
+    white-space: pre !important;
+}
+
+/* Inline code (not in pre) */
+:not(pre) > code {
+    background: rgba(122, 162, 247, 0.12) !important;
+    color: #7aa2f7 !important;
+    padding: 2px 6px !important;
+    border-radius: 4px !important;
+    font-family: 'Fira Code', 'Courier New', monospace !important;
+    font-size: 0.85em !important;
+    border: 1px solid rgba(122, 162, 247, 0.2) !important;
+}
+
+/* Legacy .code-lang-badge (keep for backwards compat) */
+.code-lang-badge {
+    display: none;
+}
+
+/* ─── Code Blocks inside Summernote Editor (.note-editable) ─────────────── */
+/* Makes code blocks look VS Code-style while writing in the dashboard */
+.note-editable pre {
+    position: relative !important;
+    padding-top: 2.5rem !important;   /* room for the fake header bar */
+    background: #1a1b26 !important;
+    color: #a9b1d6 !important;
+    border: 1px solid #2a2d3e !important;
+    border-radius: 10px !important;
+    font-family: 'Fira Code', 'JetBrains Mono', 'Courier New', monospace !important;
+    overflow-x: auto !important;
+    margin: 1.25rem 0 !important;
+    font-size: 0.875rem !important;
+    line-height: 1.6 !important;
+}
+
+/* Fake header bar using ::before */
+.note-editable pre::before {
+    content: '●  ●  ●\00a0\00a0\00a0\00a0\00a0 CODE';
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    padding: 7px 14px !important;
+    background: #12131e !important;
+    border-bottom: 1px solid #2a2d3e !important;
+    border-radius: 10px 10px 0 0 !important;
+    font-size: 0.68rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.08em !important;
+    color: #7aa2f7 !important;
+    font-family: 'Fira Code', monospace !important;
+    line-height: 1 !important;
+    display: block !important;
+    pointer-events: none !important;
+    z-index: 1 !important;
+}
+
+.note-editable pre code {
+    background: transparent !important;
+    color: #a9b1d6 !important;
+    padding: 0 !important;
+    font-size: inherit !important;
+    font-family: inherit !important;
+    white-space: pre !important;
+    display: block !important;
+}
+
+/* ─── Callout Boxes ──────────────────────────────────────────────────────── */
+.callout {
+    padding: 1.25rem;
+    margin: 1.5rem 0;
+    border: 1px solid #e2e8f0;
+    border-left-width: 5px;
+    border-radius: 6px;
+    background: #f8fafc;
+}
+
+.callout-info {
+    border-left-color: #0288d1;
+    background-color: #f0f9ff;
+}
+
+.callout-warning {
+    border-left-color: #f59e0b;
+    background-color: #fefbeb;
+}
+
+.callout-success {
+    border-left-color: #10b981;
+    background-color: #ecfdf5;
+}
+
+.callout-danger {
+    border-left-color: #ef4444;
+    background-color: #fef2f2;
+}
+
+.callout-title {
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.callout-info .callout-title { color: #0369a1; }
+.callout-warning .callout-title { color: #b45309; }
+.callout-success .callout-title { color: #047857; }
+.callout-danger .callout-title { color: #b91c1c; }
+
+/* ─── Image Alignment Helpers ────────────────────────────────────────────── */
+.img-align-left {
+    float: left;
+    margin: 0.5rem 1.5rem 1rem 0;
+    max-width: 50%;
+}
+
+.img-align-right {
+    float: right;
+    margin: 0.5rem 0 1rem 1.5rem;
+    max-width: 50%;
+}
+
+.img-align-center {
+    display: block;
+    margin: 1.5rem auto;
+    text-align: center;
+}
+
+.img-align-full {
+    display: block;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 1.5rem 0;
+}
+
+.responsive-img {
+    height: auto;
+    max-width: 100%;
+}
+
+figure.img-figure {
+    display: inline-block;
+    margin: 1.5rem auto;
+    max-width: 100%;
+    text-align: center;
+}
+
+figure.img-figure img {
+    margin-bottom: 0.5rem;
+}
+
+figure.img-figure figcaption {
+    font-size: 0.85rem;
+    color: #64748b;
+    font-style: italic;
+}
+
+/* ─── Spoiler / Details ─────────────────────────────────────────────────── */
+details.editor-details {
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    padding: 0.75rem 1rem;
+    background: #f8fafc;
+    margin: 1.5rem 0;
+    transition: background 0.2s;
+}
+
+details.editor-details[open] {
+    background: #fff;
+}
+
+details.editor-details summary {
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+    color: #334155;
+    user-select: none;
+}
+
+/* ─── Responsive Tables ──────────────────────────────────────────────────── */
+.table-responsive-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+}
+
+.table-responsive-wrapper table {
+    margin: 0 !important;
+    width: 100%;
+}
+
+/* ─── Stats & Status Bar under Editor ─────────────────────────────────────── */
+.editor-stats-bar {
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-top: none;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    padding: 6px 12px;
+    font-size: 0.78rem;
+    color: #64748b;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.editor-stats-bar span {
+    margin-right: 15px;
+}
+
+.editor-stats-bar span:last-child {
+    margin-right: 0;
+}
+
+/* ─── Focus Mode ─────────────────────────────────────────────────────────── */
+body.editor-focus-mode {
+    background: #f1f5f9 !important;
+    overflow: hidden;
+}
+
+body.editor-focus-mode .main-sidebar,
+body.editor-focus-mode .main-header,
+body.editor-focus-mode .main-footer,
+body.editor-focus-mode .content-header {
+    display: none !important;
+}
+
+body.editor-focus-mode .content-wrapper {
+    margin-left: 0 !important;
+    padding: 0 !important;
+    min-height: 100vh !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f1f5f9 !important;
+}
+
+body.editor-focus-mode .focus-container-box {
+    width: 100%;
+    max-width: 900px;
+    height: 100vh;
+    padding: 40px 20px;
+    overflow-y: auto;
+}
+
+/* ─── Image Properties Sidebar ───────────────────────────────────────────── */
+.image-properties-sidebar {
+    position: fixed;
+    top: 0;
+    right: -320px;
+    width: 320px;
+    height: 100vh;
+    background: #fff;
+    border-left: 1px solid #e2e8f0;
+    box-shadow: -4px 0 16px rgba(0,0,0,0.08);
+    z-index: 1050;
+    transition: right 0.3s ease;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.image-properties-sidebar.open {
+    right: 0;
+}
+
+.image-sidebar-header {
+    padding: 16px 20px;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f8fafc;
+}
+
+.image-sidebar-header h5 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.image-sidebar-header .close-sidebar {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    color: #64748b;
+    cursor: pointer;
+    padding: 4px;
+}
+
+.image-sidebar-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.image-sidebar-section {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #f1f5f9;
+    padding-bottom: 16px;
+}
+
+.image-sidebar-section:last-child {
+    border-bottom: none;
+}
+
+.image-sidebar-section-title {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #475569;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    letter-spacing: 0.05em;
+}
+
+.image-sidebar-preview-box {
+    width: 100%;
+    height: 140px;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    background: #f8fafc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.image-sidebar-preview-box img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* Checklist custom styling */
+.note-editable ul.checklist-list {
+    list-style: none;
+    padding-left: 1.5rem;
+}
+
+.note-editable ul.checklist-list li {
+    position: relative;
+    margin-bottom: 0.25rem;
+}
+
+.note-editable ul.checklist-list li input[type="checkbox"] {
+    position: absolute;
+    left: -1.25rem;
+    top: 4px;
+}
+
+/* Lightbox Styles */
+.editor-lightbox-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.9);
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    cursor: zoom-out;
+}
+
+.editor-lightbox-img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    transform: scale(0.95);
+    transition: transform 0.25s ease-out;
+}
+
+.editor-lightbox-overlay.active {
+    display: flex;
+}
+
+.editor-lightbox-overlay.active .editor-lightbox-img {
+    transform: scale(1);
+}

@@ -1,0 +1,97 @@
+/* --- Public Roadmap Responsive Rules --- */
+@media (max-width: 1024px) {
+    .roadmap-detail-layout {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "outline"
+            "main";
+        gap: 30px;
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+    }
+    .roadmap-sidebar-outline-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        position: static !important;
+    }
+    .roadmap-course-sidebar {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box;
+    }
+    .roadmap-main-column {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .roadmap-detail-hero-vertical {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+    .roadmap-detail-hero-cover-banner {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto;
+        aspect-ratio: 16/9;
+    }
+    .roadmap-filter-section {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+    }
+    .roadmap-filters-wrap {
+        overflow-x: auto;
+        padding-bottom: 5px;
+        white-space: nowrap;
+        flex-wrap: nowrap;
+        -webkit-overflow-scrolling: touch;
+    }
+    .roadmap-filter-select {
+        flex-shrink: 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .roadmap-container {
+        padding: 30px 0;
+    }
+    .roadmap-detail-hero-vertical {
+        padding: 15px 0;
+        margin-bottom: 24px;
+        gap: 15px;
+    }
+    .roadmap-detail-hero-content h1 {
+        font-size: 24px;
+    }
+    .roadmap-detail-description {
+        font-size: 13.5px;
+    }
+    .roadmap-detail-module-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 20px 15px;
+    }
+    .roadmap-detail-module-header-title h3 {
+        font-size: 20px;
+    }
+    .roadmap-lesson-row {
+        padding: 12px 15px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    .roadmap-lesson-row-right {
+        width: 100%;
+        justify-content: space-between;
+    }
+    .roadmap-lesson-title {
+        font-size: 0.88rem;
+    }
+}
+

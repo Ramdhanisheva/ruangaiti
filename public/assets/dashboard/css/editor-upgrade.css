@@ -1,0 +1,387 @@
+/**
+ * RuangAiTi Editor Upgrade Stylesheet
+ * Exposes styles for Focus Mode, Image Properties Sidebar, Callouts, Spoilers,
+ * Code Blocks, and stats bar.
+ */
+
+/* ─── Code Blocks in Editor & Frontend ───────────────────────────────────── */
+pre {
+    background: #1e1e24 !important;
+    color: #f8f8f2 !important;
+    padding: 1.25rem !important;
+    border-radius: 8px !important;
+    position: relative !important;
+    overflow-x: auto !important;
+    font-family: 'Fira Code', 'Courier New', Courier, monospace !important;
+    margin: 1.5rem 0 !important;
+}
+
+pre code {
+    background: transparent !important;
+    color: inherit !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    font-size: 0.9rem !important;
+}
+
+/* Copy Button for pre/code */
+.code-block-wrapper {
+    position: relative;
+    margin: 1.5rem 0;
+}
+
+.code-block-wrapper pre {
+    margin: 0 !important;
+}
+
+.code-copy-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(255, 255, 255, 0.15);
+    color: #e2e8f0;
+    border: none;
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: 0.72rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+    z-index: 10;
+}
+
+.code-copy-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    color: #fff;
+}
+
+.code-lang-badge {
+    position: absolute;
+    bottom: 8px;
+    right: 12px;
+    color: #64748b;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    pointer-events: none;
+}
+
+/* ─── Callout Boxes ──────────────────────────────────────────────────────── */
+.callout {
+    padding: 1.25rem;
+    margin: 1.5rem 0;
+    border: 1px solid #e2e8f0;
+    border-left-width: 5px;
+    border-radius: 6px;
+    background: #f8fafc;
+}
+
+.callout-info {
+    border-left-color: #0288d1;
+    background-color: #f0f9ff;
+}
+
+.callout-warning {
+    border-left-color: #f59e0b;
+    background-color: #fefbeb;
+}
+
+.callout-success {
+    border-left-color: #10b981;
+    background-color: #ecfdf5;
+}
+
+.callout-danger {
+    border-left-color: #ef4444;
+    background-color: #fef2f2;
+}
+
+.callout-title {
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.callout-info .callout-title { color: #0369a1; }
+.callout-warning .callout-title { color: #b45309; }
+.callout-success .callout-title { color: #047857; }
+.callout-danger .callout-title { color: #b91c1c; }
+
+/* ─── Image Alignment Helpers ────────────────────────────────────────────── */
+.img-align-left {
+    float: left;
+    margin: 0.5rem 1.5rem 1rem 0;
+    max-width: 50%;
+}
+
+.img-align-right {
+    float: right;
+    margin: 0.5rem 0 1rem 1.5rem;
+    max-width: 50%;
+}
+
+.img-align-center {
+    display: block;
+    margin: 1.5rem auto;
+    text-align: center;
+}
+
+.img-align-full {
+    display: block;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 1.5rem 0;
+}
+
+.responsive-img {
+    height: auto;
+    max-width: 100%;
+}
+
+figure.img-figure {
+    display: inline-block;
+    margin: 1.5rem auto;
+    max-width: 100%;
+    text-align: center;
+}
+
+figure.img-figure img {
+    margin-bottom: 0.5rem;
+}
+
+figure.img-figure figcaption {
+    font-size: 0.85rem;
+    color: #64748b;
+    font-style: italic;
+}
+
+/* ─── Spoiler / Details ─────────────────────────────────────────────────── */
+details.editor-details {
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    padding: 0.75rem 1rem;
+    background: #f8fafc;
+    margin: 1.5rem 0;
+    transition: background 0.2s;
+}
+
+details.editor-details[open] {
+    background: #fff;
+}
+
+details.editor-details summary {
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+    color: #334155;
+    user-select: none;
+}
+
+/* ─── Responsive Tables ──────────────────────────────────────────────────── */
+.table-responsive-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+}
+
+.table-responsive-wrapper table {
+    margin: 0 !important;
+    width: 100%;
+}
+
+/* ─── Stats & Status Bar under Editor ─────────────────────────────────────── */
+.editor-stats-bar {
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-top: none;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    padding: 6px 12px;
+    font-size: 0.78rem;
+    color: #64748b;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.editor-stats-bar span {
+    margin-right: 15px;
+}
+
+.editor-stats-bar span:last-child {
+    margin-right: 0;
+}
+
+/* ─── Focus Mode ─────────────────────────────────────────────────────────── */
+body.editor-focus-mode {
+    background: #f1f5f9 !important;
+    overflow: hidden;
+}
+
+body.editor-focus-mode .main-sidebar,
+body.editor-focus-mode .main-header,
+body.editor-focus-mode .main-footer,
+body.editor-focus-mode .content-header {
+    display: none !important;
+}
+
+body.editor-focus-mode .content-wrapper {
+    margin-left: 0 !important;
+    padding: 0 !important;
+    min-height: 100vh !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f1f5f9 !important;
+}
+
+body.editor-focus-mode .focus-container-box {
+    width: 100%;
+    max-width: 900px;
+    height: 100vh;
+    padding: 40px 20px;
+    overflow-y: auto;
+}
+
+/* ─── Image Properties Sidebar ───────────────────────────────────────────── */
+.image-properties-sidebar {
+    position: fixed;
+    top: 0;
+    right: -320px;
+    width: 320px;
+    height: 100vh;
+    background: #fff;
+    border-left: 1px solid #e2e8f0;
+    box-shadow: -4px 0 16px rgba(0,0,0,0.08);
+    z-index: 1050;
+    transition: right 0.3s ease;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.image-properties-sidebar.open {
+    right: 0;
+}
+
+.image-sidebar-header {
+    padding: 16px 20px;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f8fafc;
+}
+
+.image-sidebar-header h5 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.image-sidebar-header .close-sidebar {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    color: #64748b;
+    cursor: pointer;
+    padding: 4px;
+}
+
+.image-sidebar-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.image-sidebar-section {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #f1f5f9;
+    padding-bottom: 16px;
+}
+
+.image-sidebar-section:last-child {
+    border-bottom: none;
+}
+
+.image-sidebar-section-title {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #475569;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    letter-spacing: 0.05em;
+}
+
+.image-sidebar-preview-box {
+    width: 100%;
+    height: 140px;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    background: #f8fafc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.image-sidebar-preview-box img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* Checklist custom styling */
+.note-editable ul.checklist-list {
+    list-style: none;
+    padding-left: 1.5rem;
+}
+
+.note-editable ul.checklist-list li {
+    position: relative;
+    margin-bottom: 0.25rem;
+}
+
+.note-editable ul.checklist-list li input[type="checkbox"] {
+    position: absolute;
+    left: -1.25rem;
+    top: 4px;
+}
+
+/* Lightbox Styles */
+.editor-lightbox-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.9);
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    cursor: zoom-out;
+}
+
+.editor-lightbox-img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    transform: scale(0.95);
+    transition: transform 0.25s ease-out;
+}
+
+.editor-lightbox-overlay.active {
+    display: flex;
+}
+
+.editor-lightbox-overlay.active .editor-lightbox-img {
+    transform: scale(1);
+}
