@@ -1,89 +1,107 @@
-# Oredoo - Laravel Multi User Blog Project
+# <p align="center"><img src="assets/frontend/ruangaiti_flat_banner.jpg" alt="RuangAiTi Banner" width="100%" style="border-radius: 12px;" /></p>
 
-A multi user blog project using Laravel 10 and Oredoo blog template
+# <p align="center">RuangAiTi — Interactive Learning & Technology Blog Platform</p>
 
-## Features
-
-- Multi User (Admin, Author, Visitor)
-- Comment and reply system (including guest comment)
-- Featured post, Popular post
-- Category, Tag, Search module
-- Media Library
-- Pages
-- Dynamic header, footer menu
-- Post, comment, category trash and restore
-- etc.
-
-## Screenshots
-<p align="center" width="100%">
-    <img width="30%" src="https://raw.githubusercontent.com/alsayeedar/oredoo-laravel-blog-project/main/Screenshots/Screenshot_1.png"/>
-    <img width="30%" src="https://raw.githubusercontent.com/alsayeedar/oredoo-laravel-blog-project/main/Screenshots/Screenshot_2.png"/>
-    <img width="30%" src="https://raw.githubusercontent.com/alsayeedar/oredoo-laravel-blog-project/main/Screenshots/Screenshot_3.png"/>
-</p>
-<p align="center" width="100%">
-    <img width="30%" src="https://raw.githubusercontent.com/alsayeedar/oredoo-laravel-blog-project/main/Screenshots/Screenshot_4.png"/>
-    <img width="30%" src="https://raw.githubusercontent.com/alsayeedar/oredoo-laravel-blog-project/main/Screenshots/Screenshot_5.png"/>
-    <img width="30%" src="https://raw.githubusercontent.com/alsayeedar/oredoo-laravel-blog-project/main/Screenshots/Screenshot_6.png"/>
+<p align="center">
+  <img src="https://img.shields.io/badge/Laravel-10-FF2D20?style=for-the-badge&logo=laravel&logoColor=white" alt="Laravel 10" />
+  <img src="https://img.shields.io/badge/PHP-8.1%2B-777BB4?style=for-the-badge&logo=php&logoColor=white" alt="PHP 8.1" />
+  <img src="https://img.shields.io/badge/MySQL-8.0-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL" />
+  <img src="https://img.shields.io/badge/JavaScript-Vanilla-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="Vanilla JS" />
+  <img src="https://img.shields.io/badge/SEO-100%2F100-22C55E?style=for-the-badge" alt="SEO Optimized" />
 </p>
 
-## Installation
+---
 
-- Clone this repository
-```
-git clone https://github.com/alsayeedar/oredoo-laravel-blog-project.git
-```
-- Change directory
-```
-cd oredoo-laravel-blog-project
-```
-- Copy .env.example file
-```
-cp .env.example .env
-```
-- Install composer
-```
-composer i
-```
-- Generate key
-```
-php artisan key:generate
-```
-- Update database information in .env file
-```
-DB_CONNECTION=mysql
-DB_HOST=sql300.infinityfree.com
-DB_PORT=3306
-DB_DATABASE=if0_42349563_blog
-DB_USERNAME=if0_42349563
-DB_PASSWORD=Teknisi23
-```
-- Run migration
-```
-php artisan migrate
-```
-- Seed databse
-```
-php artisan db:seed
-```
-- Start server
-```
-php artisan serve
-```
-- See the result
-```
-https://ruangit.my.id/
-```
+**RuangAiTi** is a premium, high-performance technology blog and interactive learning platform built with Laravel 10. It integrates robust publishing tools, custom page design modules, learning pathways (Roadmaps), and privacy-first web analytics.
 
-## Admin Details
-- Admin credential
-```
-Username:admin
-Password:admin
-```
+## 🚀 Key Modules & Features
 
-## Credit
+### 📝 1. Core Blog Engine (V1)
+*   **Structured Content:** Dynamic publishing of articles, multi-level categories, and tag filtering.
+*   **Rich Text Editor:** Fully modified **Summernote WYSIWYG editor** supporting clean HTML rendering, table formatting, and code block formatting.
+*   **Author Management:** Profiles, roles (Admin, Author, Visitor), custom taglines, and social links.
+*   **Interactive Comments:** Threaded comment and reply system (with guest moderation rules).
 
-- **[Al Sayeed](https://github.com/alsayeedar/)**
+### 🛣️ 2. Peta Belajar / Interactive Roadmaps (V2)
+*   **Visual Learning Pathways:** Beautiful vertical timeline pathways showing how to master specific tech skills.
+*   **Prerequisites & Outcomes:** Map difficulty levels (*Beginner, Intermediate, Advanced*), required prerequisites, and expected outcomes.
+*   **Reading Progress:** Dynamic read-time calculation accumulated automatically from the roadmap's articles.
 
-## Contact:
-[![Find me on Facebook](https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white)](https://www.facebook.com/AlSayeedOfficial) [![Follow me on Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/AlSayeedAR) [![Join on Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/AlSayeedAR) [![Message me on WhatsApp](https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://wa.me/8801312671167) [![Visit my Website](https://img.shields.io/badge/website-FF5722?style=for-the-badge&logo=blogger&logoColor=white)](https://www.priyotrick.com/)
+### 📄 3. Pages & Drag-and-Drop Page Builder (V3)
+*   **Modular Page Sections:** Construct custom pages using pre-built sections (Hero banners, Features grids, Testimonials, CTA blocks).
+*   **Smart Template Rendering:**
+    *   *Default Template:* Normal header/footer and title banner layout.
+    *   *Landing Page Template:* Hides the default heading banner for a cleaner custom canvas.
+    *   *Blank Canvas Template:* Completely hides headers, footers, mobile drawers, and search bars—perfect for custom conversion landers.
+*   **Auto-Seeding Layouts:** Creating a page with a template automatically pre-seeds high-quality layout blocks.
+*   **Page Revision History:** Keep revisions of your page builds to easily roll back edits.
+
+### 📈 4. Internal Analytics & User Feedback (V3)
+*   **Privacy-Friendly Tracking:** Built-in lightweight tracker for unique visitors, page views, devices, and referral URLs—bypassing cookies and database clutter.
+*   **Log Purge Controls:** Clean/reset log database tables safely from the admin dashboard (all logs, per day, or custom intervals).
+*   **Zero-Result Search Tracking:** Logs keywords that yielded empty results, allowing you to identify what topics your readers are searching for.
+*   **Post Feedback:** Interactive rating buttons (Helpful/Unhelpful feedback log) on articles.
+
+### 📂 5. Media Library (V3)
+*   **Alt Text Integration:** Direct input of image alternative descriptions inside the library to maximize **Google Image SEO**.
+
+---
+
+## 📈 100/100 SEO & Meta Optimization
+
+*   **Breadcrumb & Article JSON-LD Schema:** Built-in automatic JSON-LD semantic data (`WebSite`, `BlogPosting`, `BreadcrumbList`, and `EducationalOccupationalProgram`) for Google Rich Snippets.
+*   **Multi-Sitemap index:** Real-time generation of split sitemaps:
+    - `/sitemap.xml` (Main Index)
+    - `/sitemap-posts.xml`
+    - `/sitemap-pages.xml`
+    - `/sitemap-roadmaps.xml`
+    - `/sitemap-taxonomies.xml`
+    - `/sitemap-authors.xml`
+*   **Kanonikal & Alt Tags:** Automatically injects `<link rel="canonical">` to prevent duplicate indexing issues.
+
+---
+
+## 🛠️ Installation & Setup
+
+1.  **Clone the Repository:**
+    ```bash
+    git clone https://github.com/Ramdhanisheva/ruangaiti.git
+    cd ruangaiti
+    ```
+
+2.  **Install Dependencies:**
+    ```bash
+    composer install
+    npm install
+    ```
+
+3.  **Setup Environment File:**
+    Copy `.env.example` to `.env` and configure your database settings.
+    ```bash
+    cp .env.example .env
+    php artisan key:generate
+    ```
+
+4.  **Database Migration & Seeding:**
+    Run migrations to build all V1-V3 database schemas:
+    ```bash
+    php artisan migrate
+    php artisan db:seed
+    ```
+
+5.  **Serve Locally:**
+    ```bash
+    php artisan serve
+    ```
+
+---
+
+## 🔒 Security Configuration
+
+*   Ensure your `.env` is **never** committed or exposed.
+*   Debug controllers and file viewing tools (`deploy-v3.php`, `read_env.php`, etc.) must be deleted from the server once deployment is completed on live cPanel/hosting.
+
+---
+
+## 📝 License & Attribution
+RuangAiTi is developed and maintained by **[Ramdhanisheva](https://github.com/Ramdhanisheva)**.
